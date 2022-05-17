@@ -1,11 +1,11 @@
 [tool.poetry]
-name = "py-music-bot"
+name = "py-music-bot-disnake"
 version = "0.1.0"
 description = ""
-authors = ["xRitsu <you@example.com>"]
+authors = ["xRitsu"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = ">=3.8.0,<3.9"
 
 [tool.poetry.dev-dependencies]
 
