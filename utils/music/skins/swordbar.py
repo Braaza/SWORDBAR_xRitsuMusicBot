@@ -19,7 +19,7 @@ def load(player: Union[LavalinkPlayer, YTDLPlayer]) -> dict:
     if not player.paused:
         embed.set_author(
             name="Tocando Agora:",
-            icon_url="https://cdn.discordapp.com/attachments/480195401543188483/895862881105616947/music_equalizer.gif"
+            icon_url="https://media.discordapp.net/attachments/940105825110876211/940133761859854356/NemukiEmoji.gif"
         )
     else:
         embed.set_author(
@@ -29,7 +29,7 @@ def load(player: Union[LavalinkPlayer, YTDLPlayer]) -> dict:
 
     embed.set_footer(
         text=str(player),
-        icon_url="https://cdn.discordapp.com/attachments/480195401543188483/907119505971486810/speaker-loud-speaker.gif"
+        icon_url="https://media.discordapp.net/attachments/940105825110876211/951151101535735868/SwordBarIcon.gif"
     )
 
     vc_txt = ""
@@ -41,7 +41,7 @@ def load(player: Union[LavalinkPlayer, YTDLPlayer]) -> dict:
         playlist_text_size = 20
 
         try:
-            vc_txt = f"\n> *️⃣ **⠂Canal de voz:** [`{player.guild.me.voice.channel.name}`](http://discordapp.com/channels/{player.guild.id}/{player.guild.me.voice.channel.id})"
+            vc_txt = f"\n> #️⃣ **⠂Canal de voz:** [{player.guild.me.voice.channel.name}](http://discordapp.com/channels/{player.guild.id}/{player.guild.me.voice.channel.id})"
         except AttributeError:
             pass
 
@@ -56,7 +56,7 @@ def load(player: Union[LavalinkPlayer, YTDLPlayer]) -> dict:
     txt = f"[`{player.current.single_title}`]({player.current.uri})\n\n" \
           f"{duration}\n" \
           f"> 💠 **⠂Por:** {player.current.authors_md}\n" \
-          f"> ✋ **⠂Pedido por:** {player.current.requester.mention}\n" \
+          f"> 🏮 **⠂Pedido por:** {player.current.requester.mention}\n" \
           f"> 🔊 **⠂Volume:** `{player.volume}%`"
 
     if player.current.track_loops:
@@ -69,13 +69,13 @@ def load(player: Union[LavalinkPlayer, YTDLPlayer]) -> dict:
         txt += f"\n> 💽 **⠂Álbum:** [`{fix_characters(player.current.album['name'], limit=playlist_text_size)}`]({player.current.album['url']})"
 
     if player.current.playlist:
-        txt += f"\n> 📑 **⠂Playlist:** [`{fix_characters(player.current.playlist['name'], limit=playlist_text_size)}`]({player.current.playlist['url']})"
+        txt += f"\n> 🎶 **⠂Playlist:** [`{fix_characters(player.current.playlist['name'], limit=playlist_text_size)}`]({player.current.playlist['url']})"
 
     if player.nonstop:
-        txt += "\n> ♾️ **⠂Modo interrupto:** `Ativado`"
+        txt += "\n> 📻 **⠂Modo interrupto:** `Ativado`"
 
     if player.restrict_mode:
-        txt += f"\n> 🔒 **⠂Modo restrito:** `Ativado`"
+        txt += f"\n> 👁 **⠂Modo restrito:** `Ativado`"
 
     txt += f"{vc_txt}\n"
 
@@ -89,7 +89,7 @@ def load(player: Union[LavalinkPlayer, YTDLPlayer]) -> dict:
             for n, t in (enumerate(itertools.islice(player.queue, queue_size)))
         )
 
-        embed_queue = disnake.Embed(title=f"Músicas na fila: {len(player.queue)}", color=player.bot.get_color(player.guild.me),
+        embed_queue = disnake.Embed(title=f"Próximas músicas na fila: {len(player.queue)}", color=player.bot.get_color(player.guild.me),
                                     description=f"\n{queue_txt}")
         embed_queue.set_image(url=queue_img)
 
@@ -99,7 +99,7 @@ def load(player: Union[LavalinkPlayer, YTDLPlayer]) -> dict:
         embed.set_image(url=player.current.thumb)
     else:
         embed.set_image(
-            url="https://cdn.discordapp.com/attachments/554468640942981147/937918500784197632/rainbow_bar.gif")
+            url="https://media.discordapp.net/attachments/940105825110876211/950947064727093258/BarConvite.png")
         embed.set_thumbnail(url=player.current.thumb)
 
     data["embeds"] = [embed_queue, embed] if embed_queue else [embed]
